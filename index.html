@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Se restringe el zoom y el escalado para mantener la estructura fija en móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>EPT - IE 51006 Túpac Amaru</title>
+    
+    <!-- Iconos de Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <style>
+        /* Bloqueo de ajuste de texto del sistema y reseteo básico */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: none; /* Bloquea escalado de fuente en iOS */
+            text-size-adjust: none;         /* Bloquea escalado de fuente en Android/Browsers */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Encabezado Atractivo e Institucional */
+        header {
+            background: linear-gradient(135deg, #7a1c1c, #b83232); /* Colores institucionales cálidos */
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        header h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #ffeb3b; /* Resalte para el área */
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Contenedor Principal (Layout de Celular) */
+        main {
+            flex: 1;
+            padding: 15px;
+            max-width: 480px; /* Optimización estricta para smartphone */
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Menú de Navegación Estilo Tarjetas Móviles */
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #444;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 1px solid #eef2f5;
+        }
+
+        .menu-item:active {
+            transform: scale(0.95);
+            background-color: #f0f0f0;
+        }
+
+        .menu-item .material-icons {
+            margin-bottom: 8px;
+            font-size: 1.8rem;
+            color: #b83232;
+        }
+
+        /* Sección del Concurso Crea y Emprende */
+        .section-concurso {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid #ff9800; /* Detalle en color naranja de emprendimiento */
+            margin-top: 10px;
+        }
+
+        .section-concurso h3 {
+            color: #b83232;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-concurso h3 .material-icons {
+            margin-right: 6px;
+            color: #ff9800;
+        }
+
+        .section-concurso p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Botones de Descarga */
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #2e7d32; /* Verde éxito/documento */
+            color: white;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-download:active {
+            background-color: #1b5e20;
+        }
+
+        .btn-download.orientaciones {
+            background-color: #0277bd; /* Azul informativo */
+        }
+
+        .btn-download.orientaciones:active {
+            background-color: #01579b;
+        }
+
+        .btn-download .material-icons {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 0.75rem;
+            color: #888;
+            background-color: #eef2f5;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Presentación Atractiva -->
+    <header>
+        <h1>I.E. 51006 Túpac Amaru</h1>
+        <h2>Educación para el Trabajo</h2>
+        <p>Santiago - Cusco</p>
+    </header>
+
+    <!-- Contenido para Móvil -->
+    <main>
+        
+        <!-- Menú de Navegación -->
+        <div class="menu-container">
+            <a href="#planificacion" class="menu-item">
+                <span class="material-icons">assignment</span>
+                Planificación
+            </a>
+            <a href="#sesiones" class="menu-item">
+                <span class="material-icons">class</span>
+                Sesiones
+            </a>
+            <a href="#actividades" class="menu-item">
+                <span class="material-icons">local_activity</span>
+                Actividades
+            </a>
+            <a href="#plan-lector" class="menu-item">
+                <span class="material-icons">menu_book</span>
+                Plan Lector
+            </a>
+        </div>
+
+        <!-- Sector Concurso: Crea y Emprende -->
+        <section class="section-concurso" id="concurso">
+            <h3>
+                <span class="material-icons">emoji_events</span> 
+                Concurso Crea y Emprende
+            </h3>
+            <p>
+                Desarrolla tus capacidades emprendedoras y de gestión de proyectos mediante la metodología Design Thinking y modelos de negocio. Descarga aquí los materiales oficiales.
+            </p>
+            
+            <div class="btn-group">
+                <!-- Reemplazar '#' por el enlace real del archivo cuando corresponda -->
+                <a href="#" class="btn-download" download>
+                    <span class="material-icons">file_download</span>
+                    Descargar Formato
+                </a>
+                <a href="#" class="btn-download orientaciones" download>
+                    <span class="material-icons">picture_as_pdf</span>
+                    Descargar Orientaciones
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 Área de EPT - IE 51006 Túpac Amaru
+    </footer>
+
+</body>
+</html>
