@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crea y Emprende 2026 – IE 51006 "Túpac Amaru"</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+  <style>
+    :root {
+      --brand-primary: #1a5276;
+      --brand-secondary: #c0392b;
+      --brand-accent: #f39c12;
+      --brand-light: #eaf4fb;
+    }
+    body { background: #fff; font-family: 'Segoe UI', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .navbar-brand .brand-sub { font-size: .75rem; opacity: .85; display: block; line-height: 1; }
+    .navbar-brand .brand-main { font-weight: 700; font-size: 1.05rem; }
+    .navbar { background: var(--brand-primary) !important; }
+    .navbar .nav-link { color: rgba(255,255,255,.85) !important; font-size: .9rem; }
+    .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--brand-accent) !important; }
+    .navbar-toggler { border-color: rgba(255,255,255,.4); }
+    .navbar-toggler-icon { filter: invert(1); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--brand-primary) 0%, #1f618d 60%, #154360 100%);
+      color: #fff; padding: 3.5rem 0 2.5rem;
+    }
+    .hero .badge-event { background: var(--brand-accent); color: #000; font-size: .8rem; }
+    .hero h1 { font-weight: 800; letter-spacing: -.5px; }
+    .hero .lead { opacity: .9; }
+    .hero .stat-box { background: rgba(255,255,255,.12); border-radius: 12px; padding: .9rem 1.2rem; text-align: center; }
+    .hero .stat-box .stat-num { font-size: 2rem; font-weight: 700; color: var(--brand-accent); }
+    .hero .stat-box .stat-label { font-size: .75rem; opacity: .85; }
+
+    /* ── SECTION TITLES ── */
+    .section-title { color: var(--brand-primary); font-weight: 700; border-left: 4px solid var(--brand-accent); padding-left: .75rem; margin-bottom: 1.5rem; }
+
+    /* ── CARDS ── */
+    .card { border: none; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
+    .card-header-brand { background: var(--brand-primary); color: #fff; border-radius: 12px 12px 0 0 !important; }
+    .card-header-cat-a { background: #1a5276; color: #fff; border-radius: 12px 12px 0 0 !important; }
+    .card-header-cat-b { background: #6c3483; color: #fff; border-radius: 12px 12px 0 0 !important; }
+
+    /* ── ACCORDION ── */
+    .accordion-button { font-weight: 600; color: var(--brand-primary); background: var(--brand-light); }
+    .accordion-button:not(.collapsed) { background: var(--brand-primary); color: #fff; box-shadow: none; }
+    .accordion-button:not(.collapsed)::after { filter: invert(1); }
+    .accordion-item { border-radius: 8px !important; margin-bottom: .5rem; overflow: hidden; border: 1px solid #dee2e6; }
+
+    /* ── TIMELINE ── */
+    .timeline-item { position: relative; padding-left: 2.2rem; margin-bottom: 1rem; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: .6rem; top: 0; bottom: -1rem;
+      width: 2px; background: #dee2e6;
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-dot {
+      position: absolute; left: 0; top: .2rem;
+      width: 1.3rem; height: 1.3rem; border-radius: 50%;
+      background: var(--brand-primary); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: .6rem; font-weight: 700;
+    }
+
+    /* ── DOWNLOAD BUTTONS ── */
+    .btn-download-a { background: #1a5276; color: #fff; border: none; }
+    .btn-download-a:hover { background: #154360; color: #fff; }
+    .btn-download-b { background: #6c3483; color: #fff; border: none; }
+    .btn-download-b:hover { background: #4a235a; color: #fff; }
+    .btn-download-plan { background: var(--brand-secondary); color: #fff; border: none; }
+    .btn-download-plan:hover { background: #a93226; color: #fff; }
+
+    /* ── PHASES ── */
+    .phase-badge { width: 2.4rem; height: 2.4rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+
+    /* ── TABLE ── */
+    .table thead th { background: var(--brand-primary); color: #fff; font-size: .85rem; }
+    .table-striped > tbody > tr:nth-of-type(odd) > * { background: var(--brand-light); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--brand-primary); color: rgba(255,255,255,.8); font-size: .85rem; }
+
+    /* scrollspy offset */
+    section[id] { scroll-margin-top: 70px; }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
+
+<!-- ════════════════ NAVBAR ════════════════ -->
+<nav id="mainNav" class="navbar navbar-expand-lg sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+      <i class="bi bi-award-fill fs-4 text-warning"></i>
+      <div>
+        <span class="brand-sub">IE 51006 "Túpac Amaru" · Santiago, Cusco</span>
+        <span class="brand-main text-white">Crea y Emprende 2026</span>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#inicio"><i class="bi bi-house me-1"></i>Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#objetivos"><i class="bi bi-bullseye me-1"></i>Objetivos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organizacion"><i class="bi bi-diagram-3 me-1"></i>Organización</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portafolios"><i class="bi bi-folder2-open me-1"></i>Portafolios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#cronograma"><i class="bi bi-calendar3 me-1"></i>Cronograma</a></li>
+        <li class="nav-item"><a class="nav-link" href="#recursos"><i class="bi bi-people me-1"></i>Recursos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#descargas"><i class="bi bi-download me-1"></i>Descargas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════ HERO ════════════════ -->
+<section id="inicio" class="hero">
+  <div class="container">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-7">
+        <span class="badge badge-event mb-2 px-3 py-2 rounded-pill"><i class="bi bi-trophy me-1"></i>Concurso Interno Institucional</span>
+        <h1 class="display-5 mb-2">Crea y Emprende 2026</h1>
+        <p class="lead mb-1">IE N.° 51006 "Túpac Amaru" · Santiago, Cusco</p>
+        <p class="mb-3 opacity-75"><i class="bi bi-calendar-event me-1"></i>Jueves, 20 de agosto de 2026 &nbsp;|&nbsp; <i class="bi bi-geo-alt me-1"></i>Patio principal de la IE</p>
+        <p class="mb-3">Área de <strong>Educación para el Trabajo (EPT)</strong> &mdash; Etapa Institucional del Concurso Nacional Crea y Emprende, promovido por el <strong>MINEDU</strong>.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a href="#portafolios" class="btn btn-warning fw-semibold"><i class="bi bi-folder2-open me-1"></i>Ver Portafolios</a>
+          <a href="#descargas" class="btn btn-outline-light"><i class="bi bi-download me-1"></i>Descargar Formatos</a>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="row g-3">
+          <div class="col-6"><div class="stat-box"><div class="stat-num">20</div><div class="stat-label">Proyectos de emprendimiento</div></div></div>
+          <div class="col-6"><div class="stat-box"><div class="stat-num">100</div><div class="stat-label">Estudiantes participantes</div></div></div>
+          <div class="col-6"><div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Categorías (A y B)</div></div></div>
+          <div class="col-6"><div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Equipos pasan a etapa UGEL</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FUNDAMENTACIÓN Y OBJETIVOS ════════════════ -->
+<section id="objetivos" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-lightbulb me-2"></i>Fundamentación y Objetivos</h2>
+
+    <!-- Fundamentación -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="fw-bold text-primary mb-3"><i class="bi bi-book me-2"></i>Fundamentación Pedagógica e Institucional</h5>
+        <p>El Concurso Nacional Crea y Emprende, promovido por el MINEDU, constituye una de las estrategias pedagógicas más significativas del área de EPT. Responde directamente a la <strong>competencia del CNEB</strong> orientada al diseño y gestión de proyectos de emprendimiento que ofrezcan soluciones creativas e innovadoras a problemas económicos y sociales del entorno estudiantil.</p>
+        <p class="mb-2">La participación en el Concurso Institucional «Crea y Emprende 2026» articula las fases del <strong>Design Thinking</strong> con la metodología <strong>Lean Startup</strong>, promoviendo la validación real de hipótesis, el pensamiento crítico y la gestión empresarial básica.</p>
+        <h6 class="fw-semibold mt-3 mb-2">Marcos Normativos</h6>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item ps-0 border-0 py-1"><i class="bi bi-check2-circle text-success me-2"></i>Ley General de Educación N.° 28044 y modificatorias.</li>
+          <li class="list-group-item ps-0 border-0 py-1"><i class="bi bi-check2-circle text-success me-2"></i>Currículo Nacional de la Educación Básica (CNEB) – MINEDU.</li>
+          <li class="list-group-item ps-0 border-0 py-1"><i class="bi bi-check2-circle text-success me-2"></i>Cartilla Orientadora del Concurso Nacional Crea y Emprende 2026.</li>
+          <li class="list-group-item ps-0 border-0 py-1"><i class="bi bi-check2-circle text-success me-2"></i>Proyecto Educativo Institucional (PEI) de la IE N.° 51006 "Túpac Amaru".</li>
+          <li class="list-group-item ps-0 border-0 py-1"><i class="bi bi-check2-circle text-success me-2"></i>Plan Anual de Trabajo (PAT) 2026 de la IE N.° 51006 "Túpac Amaru".</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Objetivo General -->
+      <div class="col-md-6">
+        <div class="card h-100 border-start border-4 border-primary">
+          <div class="card-body">
+            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-bullseye me-2"></i>Objetivo General</h6>
+            <p class="mb-0">Organizar y ejecutar el Concurso Interno Institucional «Crea y Emprende 2026», promoviendo el desarrollo de <strong>competencias emprendedoras, creativas e innovadoras</strong> en los estudiantes de Educación Secundaria, a través de la presentación y evaluación de proyectos que respondan a necesidades reales de su entorno familiar, barrial y comunitario.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Objetivos Específicos -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h6 class="fw-bold text-primary mb-2"><i class="bi bi-list-check me-2"></i>Objetivos Específicos</h6>
+            <ul class="list-unstyled mb-0">
+              <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-warning me-2"></i>Garantizar la participación activa de todos los grados (1.° a 5.°).</li>
+              <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-warning me-2"></i>Seleccionar los mejores proyectos de cada categoría (A y B) de forma justa e imparcial.</li>
+              <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-warning me-2"></i>Fortalecer habilidades blandas con Design Thinking y Lean Startup.</li>
+              <li class="mb-2"><i class="bi bi-arrow-right-circle-fill text-warning me-2"></i>Preparar a los equipos ganadores para la etapa UGEL Cusco.</li>
+              <li class="mb-0"><i class="bi bi-arrow-right-circle-fill text-warning me-2"></i>Reconocer la creatividad y el trabajo colaborativo generando cultura emprendedora.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ ORGANIZACIÓN ════════════════ -->
+<section id="organizacion" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-diagram-3 me-2"></i>Organización del Concurso</h2>
+
+    <div class="row g-4 mb-4">
+      <!-- Categorías -->
+      <div class="col-lg-7">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-layers me-2"></i>Categorías y Grados</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead><tr><th>Categoría</th><th>Grados</th><th>Equipos</th><th>Contexto del Proyecto</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="badge bg-primary">A</span></td><td>1.° y 2.° Secundaria</td><td>8 equipos</td><td>Soluciones del contexto familiar y barrial.</td></tr>
+                  <tr><td><span class="badge" style="background:#6c3483">B</span></td><td>3.°, 4.° y 5.° Secundaria</td><td>12 equipos</td><td>Soluciones de la comunidad, ciudad, distrito, provincia, región o el país.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Estructura del equipo -->
+      <div class="col-lg-5">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-people me-2"></i>Estructura del Equipo</div>
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="phase-badge bg-warning"><i class="bi bi-person-fill text-dark"></i></div>
+              <div><strong>5 estudiantes</strong> por equipo + 1 docente asesor EPT.</div>
+            </div>
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="phase-badge bg-info"><i class="bi bi-journal-check text-white"></i></div>
+              <div>Cada aula desarrolla <strong>6 proyectos</strong> durante el trabajo pedagógico regular.</div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <div class="phase-badge bg-success"><i class="bi bi-trophy text-white"></i></div>
+              <div>El docente asesor selecciona el <strong>mejor proyecto</strong> por aula para la ExpofFeria.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mb-4">
+      <!-- Jurado -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-person-badge me-2"></i>Jurado Calificador</div>
+          <div class="card-body">
+            <p>Cada categoría contará con <strong>3 jurados calificadores</strong>: docentes de otras áreas, representantes del equipo directivo o invitados externos.</p>
+            <div class="alert alert-info mb-0 py-2"><i class="bi bi-info-circle me-1"></i>Los jurados firmarán una <strong>declaración jurada</strong> garantizando transparencia e imparcialidad.</div>
+          </div>
+        </div>
+      </div>
+      <!-- Premiación -->
+      <div class="col-md-6">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-trophy me-2"></i>Premiación</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead><tr><th>Categoría</th><th>1.er lugar</th><th>2.° lugar</th><th>Mención</th></tr></thead>
+                <tbody>
+                  <tr><td><span class="badge bg-primary">A</span></td><td>🥇 Diploma + Útiles + Pase UGEL</td><td>🥈 Diploma + Útiles + Pase UGEL</td><td>Diploma</td></tr>
+                  <tr><td><span class="badge" style="background:#6c3483">B</span></td><td>🥇 Diploma + Útiles + Pase UGEL</td><td>🥈 Diploma + Útiles + Pase UGEL</td><td>Diploma</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instrumentos de evaluación -->
+    <div class="card">
+      <div class="card-header card-header-brand"><i class="bi bi-clipboard-check me-2"></i>Instrumentos de Evaluación</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-3 rounded bg-primary text-white">
+              <h6 class="fw-bold mb-1"><i class="bi bi-star me-1"></i>Rúbrica Categoría A</h6>
+              <p class="mb-1 small">5 criterios de evaluación</p>
+              <p class="fs-4 fw-bold mb-0">Máx. 20 pts.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 rounded text-white" style="background:#6c3483">
+              <h6 class="fw-bold mb-1"><i class="bi bi-star-fill me-1"></i>Rúbrica Categoría B</h6>
+              <p class="mb-1 small">7 criterios de evaluación</p>
+              <p class="fs-4 fw-bold mb-0">Máx. 28 pts.</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="alert alert-warning mb-0 py-2"><i class="bi bi-info-circle me-1"></i>Cada criterio se evalúa en 4 niveles: <strong>Básico</strong> (1 pto.) · <strong>En Proceso</strong> (2 ptos.) · <strong>Destacado</strong> (3 ptos.) · <strong>Sobresaliente</strong> (4 ptos.)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ PORTAFOLIOS ════════════════ -->
+<section id="portafolios" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-folder2-open me-2"></i>Estructura de Portafolios</h2>
+    <p class="text-muted mb-4">El portafolio debe seguir la estructura oficial del MINEDU (Cartilla Orientadora). Consulta los acordeones de cada categoría para conocer los requisitos completos.</p>
+
+    <!-- Fases Design Thinking -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h6 class="fw-bold mb-3 text-primary"><i class="bi bi-diagram-2 me-2"></i>Fases del Design Thinking aplicadas</h6>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <span class="badge rounded-pill px-3 py-2 fs-6" style="background:#e74c3c">🤝 Empatizar</span>
+          <span class="badge rounded-pill px-3 py-2 fs-6" style="background:#e67e22">🎯 Definir</span>
+          <span class="badge rounded-pill px-3 py-2 fs-6" style="background:#f1c40f; color:#000">💡 Idear</span>
+          <span class="badge rounded-pill px-3 py-2 fs-6" style="background:#27ae60">🔧 Prototipar</span>
+          <span class="badge rounded-pill px-3 py-2 fs-6" style="background:#2980b9">✅ Evaluar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- CAT A -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header card-header-cat-a d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-folder me-2"></i>Portafolio – Categoría A</span>
+            <span class="badge bg-warning text-dark">1.° y 2.° Sec.</span>
+          </div>
+          <div class="card-body">
+            <div class="accordion accordion-flush" id="accordionCatA">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1">1. Carátula e Índice</button></h2>
+                <div id="a1" class="accordion-collapse collapse" data-bs-parent="#accordionCatA">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li>Nombre del Proyecto</li>
+                      <li>Nombre y Apellidos de los integrantes del equipo</li>
+                      <li>Nombre del docente asesor de EPT y Código Modular</li>
+                      <li>Código modular y nombre de la IE</li>
+                      <li>Nombre del equipo emprendedor</li>
+                      <li>Fecha de inicio y finalización del proyecto</li>
+                      <li>Fotografía principal representativa del emprendimiento</li>
+                      <li>Índice con numeración de páginas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">2. Resumen del Proyecto</button></h2>
+                <div id="a2" class="accordion-collapse collapse" data-bs-parent="#accordionCatA">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li><strong>Problema:</strong> ¿Qué problema resuelve y para quién?</li>
+                      <li><strong>Solución:</strong> ¿Cómo alivias el problema?</li>
+                      <li><strong>Modelo de ventas:</strong> ¿Qué vendes y cuál es tu propuesta de valor?</li>
+                      <li><strong>Innovación:</strong> La técnica, ingrediente secreto o magia del producto/servicio.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">3. Análisis del Producto/Servicio</button></h2>
+                <div id="a3" class="accordion-collapse collapse" data-bs-parent="#accordionCatA">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li><strong>Competencia:</strong> ¿Qué productos/servicios ya existen?</li>
+                      <li><strong>Necesidades:</strong> ¿Qué realmente necesitan las personas?</li>
+                      <li><strong>Funcional:</strong> Características, funciones, uso y utilidad.</li>
+                      <li><strong>Usabilidad:</strong> Facilidad y eficiencia para el usuario.</li>
+                      <li><strong>Morfológico:</strong> Forma, características físicas y diseño.</li>
+                      <li><strong>Estructural:</strong> Componentes e interacciones.</li>
+                      <li><strong>Comparativo:</strong> Diferencias y similitudes con productos similares.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4">4. Etapas del Proyecto</button></h2>
+                <div id="a4" class="accordion-collapse collapse" data-bs-parent="#accordionCatA">
+                  <div class="accordion-body">
+                    <div class="mb-2"><span class="badge bg-secondary mb-1">Preparación</span>
+                      <ul class="small mb-1">
+                        <li>Roles asignados al equipo (líder, investigador, diseñador…)</li>
+                        <li>Mapa de habilidades del equipo</li>
+                        <li>Acta de acuerdos iniciales con registro de asistencia y fotografías fechadas</li>
+                        <li>Rúbricas de habilidades blandas aplicadas en cada etapa</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge" style="background:#e74c3c">Creación – Design Thinking</span>
+                      <ul class="small mb-1">
+                        <li><strong>Empatizar:</strong> Video de 10 min de entrevista con preguntas "¿Y si…?", "Cuéntame…", "¿Por qué…?"</li>
+                        <li><strong>Definir:</strong> Mapa de empatía, insights clave, definición POV</li>
+                        <li><strong>Idear:</strong> Evidencia de técnica de creatividad y debates de soluciones</li>
+                        <li><strong>Prototipar:</strong> Bocetos, primer prototipo, proceso de fabricación, listado de materiales</li>
+                        <li><strong>Evaluar:</strong> Evidencia fotográfica de prueba con usuarios</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge bg-info">Planificación</span>
+                      <ul class="small mb-1">
+                        <li>Lean Canvas: hipótesis falsables (bloques excepto Ventaja injusta)</li>
+                        <li>Plan de validación con Diagrama Gantt</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge bg-success">Ejecución</span>
+                      <ul class="small mb-1">
+                        <li>Videos de 5 min de entrevistas de problemas y de soluciones con usuarios reales</li>
+                        <li>Resultados de validaciones iniciales</li>
+                        <li>Cambios y ajustes al producto. Comparación antes/después del PMV</li>
+                        <li>Estrategias de captación, retención de clientes y crecimiento del negocio</li>
+                      </ul>
+                    </div>
+                    <div><span class="badge bg-warning text-dark">Evaluación</span>
+                      <ul class="small mb-0">
+                        <li>Desafíos enfrentados y cómo se resolvieron</li>
+                        <li>Lecciones aprendidas y mejoras futuras</li>
+                        <li>Fotografías del equipo reflexionando</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5">5. Anexos y Documentación</button></h2>
+                <div id="a5" class="accordion-collapse collapse" data-bs-parent="#accordionCatA">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li>Facturas de compras de materiales o insumos</li>
+                      <li>Registros de ventas o pedidos</li>
+                      <li>Constancias de participación en ferias, concursos o eventos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /accordion -->
+          </div>
+          <div class="card-footer bg-white border-0 pb-3">
+            <a href="Formato_-_Cat_A.docx" download class="btn btn-download-a w-100 rounded-pill">
+              <i class="bi bi-file-word me-2"></i>Descargar Formato Categoría A (.docx)
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAT B -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header card-header-cat-b d-flex justify-content-between align-items-center">
+            <span><i class="bi bi-folder me-2"></i>Portafolio – Categoría B</span>
+            <span class="badge bg-warning text-dark">3.°, 4.° y 5.° Sec.</span>
+          </div>
+          <div class="card-body">
+            <div class="accordion accordion-flush" id="accordionCatB">
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b1">1. Carátula e Índice</button></h2>
+                <div id="b1" class="accordion-collapse collapse" data-bs-parent="#accordionCatB">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li>Nombre del Proyecto</li>
+                      <li>Nombre y Apellidos de los integrantes del equipo</li>
+                      <li>Docente asesor EPT y Código Modular</li>
+                      <li>Código modular y nombre de la IE</li>
+                      <li>Nombre del equipo emprendedor</li>
+                      <li>Fecha de inicio y finalización del proyecto</li>
+                      <li>Fotografía representativa del emprendimiento</li>
+                      <li>Índice con numeración de páginas</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2">2. Resumen del Proyecto</button></h2>
+                <div id="b2" class="accordion-collapse collapse" data-bs-parent="#accordionCatB">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li><strong>Problema:</strong> ¿Qué problema resuelve y para quién?</li>
+                      <li><strong>Solución:</strong> ¿Cómo alivias el problema?</li>
+                      <li><strong>Modelo de ventas:</strong> ¿Qué vendes y cuál es tu propuesta de valor?</li>
+                      <li><strong>Innovación:</strong> La técnica o magia del producto/servicio.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b3">3. Análisis del Producto/Servicio</button></h2>
+                <div id="b3" class="accordion-collapse collapse" data-bs-parent="#accordionCatB">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li><strong>Competencia:</strong> ¿Qué productos/servicios ya existen?</li>
+                      <li><strong>Necesidades:</strong> ¿Qué realmente necesitan las personas?</li>
+                      <li><strong>Funcional:</strong> Características, funciones, uso y utilidad.</li>
+                      <li><strong>Accesibilidad:</strong> ¿Puede ser utilizado por todas las personas independientemente de sus capacidades?</li>
+                      <li><strong>Usabilidad:</strong> Facilidad y eficiencia para el usuario.</li>
+                      <li><strong>Morfológico:</strong> Forma, características físicas y diseño.</li>
+                      <li><strong>Estructural:</strong> Componentes e interacciones.</li>
+                      <li><strong>Tecnológico:</strong> Tecnología utilizada en diseño, fabricación y funcionamiento.</li>
+                      <li><strong>Comparativo:</strong> Diferencias y similitudes con productos similares.</li>
+                    </ul>
+                    <div class="alert alert-info mt-2 py-1 small mb-0"><i class="bi bi-info-circle me-1"></i>La Categoría B incluye <strong>Análisis de Accesibilidad y Tecnológico</strong> que no están en la Cat. A.</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b4">4. Etapas del Proyecto</button></h2>
+                <div id="b4" class="accordion-collapse collapse" data-bs-parent="#accordionCatB">
+                  <div class="accordion-body">
+                    <div class="mb-2"><span class="badge bg-secondary mb-1">Preparación</span>
+                      <ul class="small mb-1">
+                        <li>Roles asignados, mapa de habilidades, acta inicial con asistencia y fotos</li>
+                        <li>Rúbricas de habilidades blandas en cada etapa</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge" style="background:#e74c3c">Creación – Design Thinking</span>
+                      <ul class="small mb-1">
+                        <li><strong>Empatizar:</strong> Video de 10 min con preguntas "¿Y si…?", "Cuéntame…", "¿Por qué…?"</li>
+                        <li><strong>Definir:</strong> Mapa de empatía, insights, POV, reuniones con post-its</li>
+                        <li><strong>Idear:</strong> Técnica de creatividad elegida, debates de soluciones</li>
+                        <li><strong>Prototipar:</strong> Bocetos, prototipo, fabricación, materiales</li>
+                        <li><strong>Evaluar:</strong> <em>Video de 10 min</em> de prueba con usuarios</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge bg-info">Planificación</span>
+                      <ul class="small mb-1">
+                        <li>Lean Canvas: hipótesis falsables de <strong>todos los bloques</strong></li>
+                        <li>Plan de validación con Diagrama Gantt</li>
+                      </ul>
+                    </div>
+                    <div class="mb-2"><span class="badge bg-success">Ejecución</span>
+                      <ul class="small mb-1">
+                        <li>Videos fechados (5 min) de entrevistas de problemas y soluciones</li>
+                        <li>Resultados de validaciones, cambios al producto, antes/después PMV</li>
+                        <li>Estrategias de captación, retención de clientes y crecimiento</li>
+                      </ul>
+                    </div>
+                    <div><span class="badge bg-warning text-dark">Evaluación</span>
+                      <ul class="small mb-0">
+                        <li>Desafíos, lecciones aprendidas y mejoras futuras</li>
+                        <li>Fotografías del equipo reflexionando</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b5">5. Anexos y Documentación</button></h2>
+                <div id="b5" class="accordion-collapse collapse" data-bs-parent="#accordionCatB">
+                  <div class="accordion-body">
+                    <ul class="small mb-0">
+                      <li>Facturas de compras de materiales o insumos</li>
+                      <li>Registros de ventas o pedidos</li>
+                      <li>Constancias de participación en ferias, concursos o eventos</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div><!-- /accordion -->
+          </div>
+          <div class="card-footer bg-white border-0 pb-3">
+            <a href="Formato_-_Cat_B.docx" download class="btn btn-download-b w-100 rounded-pill">
+              <i class="bi bi-file-word me-2"></i>Descargar Formato Categoría B (.docx)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div><!-- /row portafolios -->
+
+    <!-- Habilidades blandas -->
+    <div class="card mt-4">
+      <div class="card-header card-header-brand"><i class="bi bi-heart me-2"></i>Habilidades Blandas a Evidenciar</div>
+      <div class="card-body">
+        <div class="row g-2">
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-shield-check text-primary me-1"></i>Autoconfianza / Asunción de riesgo</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-arrow-repeat text-success me-1"></i>Resiliencia</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-calendar-check text-info me-1"></i>Planificación / Organización</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-lightbulb text-warning me-1"></i>Creatividad e Innovación</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-people text-primary me-1"></i>Cooperación</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-shuffle text-success me-1"></i>Adaptabilidad</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-play-circle text-info me-1"></i>Iniciativa</span></div>
+          <div class="col-6 col-md-4 col-lg-3"><span class="badge bg-light text-dark border p-2 w-100 text-start"><i class="bi bi-lightning text-warning me-1"></i>Perseverancia y resistencia a la frustración</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ CRONOGRAMA ════════════════ -->
+<section id="cronograma" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-calendar3 me-2"></i>Cronograma de Actividades</h2>
+    <div class="card">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-striped mb-0">
+            <thead>
+              <tr>
+                <th style="min-width:240px">Actividad</th>
+                <th>Responsable(s)</th>
+                <th class="text-center">Mar</th>
+                <th class="text-center">Jun</th>
+                <th class="text-center">Jul</th>
+                <th class="text-center">Ago</th>
+                <th class="text-center">Sep</th>
+                <th class="text-center">Oct</th>
+                <th class="text-center">Nov</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Aprobación y difusión del Plan de Trabajo</td><td>Directivos y Coord. EPT</td><td class="text-center">✔</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Socialización del Plan con docentes y estudiantes</td><td>Docentes EPT</td><td></td><td class="text-center">✔</td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Desarrollo de los 6 proyectos por aula (fases: Preparación, Creación, Planificación, Ejecución y Evaluación)</td><td>Docentes EPT y Estudiantes</td><td></td><td class="text-center">✔</td><td class="text-center">✔</td><td></td><td></td><td></td><td></td></tr>
+              <tr><td>Evaluación interna y selección del proyecto ganador por sección</td><td>Docente asesor de cada aula</td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td><td></td></tr>
+              <tr><td>Revisión previa de los 20 portafolios por el coordinador EPT</td><td>Coordinador EPT</td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td><td></td></tr>
+              <tr><td>Acondicionamiento del patio, stands, señalización y gigantografía</td><td>Docentes EPT y mantenimiento</td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td><td></td></tr>
+              <tr><td>Ensayo general y orientaciones finales a los equipos</td><td>Docentes EPT y Estudiantes</td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td><td></td></tr>
+              <tr><td>Entrega de materiales, ajustes finales y confirmación del jurado</td><td>Coord. EPT y Directivos</td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td><td></td></tr>
+              <tr class="table-warning fw-bold"><td>🏆 EXPOFERIA CREA Y EMPRENDE 2026 (20 de agosto)</td><td>Toda la comunidad educativa</td><td></td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td></tr>
+              <tr><td>Preparación de los 4 equipos ganadores para etapa UGEL Cusco</td><td>Docentes asesores y Directivos</td><td></td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td></tr>
+              <tr><td>Inscripción en el SICE de los proyectos ganadores</td><td>Coordinador EPT y Directivos</td><td></td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td></tr>
+              <tr><td>Participación en la etapa UGEL Cusco</td><td>Equipos ganadores y asesores</td><td></td><td></td><td></td><td></td><td class="text-center">✔</td><td></td><td></td></tr>
+              <tr><td>Corrección de observaciones si se clasifican en etapas posteriores</td><td>—</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="text-center">✔</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ RECURSOS ════════════════ -->
+<section id="recursos" class="py-5">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-people me-2"></i>Recursos y Responsabilidades</h2>
+
+    <div class="row g-4 mb-4">
+      <!-- Recursos Humanos -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-people me-2"></i>Recursos Humanos</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead><tr><th>Recurso</th><th>Función</th></tr></thead>
+                <tbody>
+                  <tr><td>1 Director de la IE</td><td>Aprobación, organización y representación institucional.</td></tr>
+                  <tr><td>1 Subdirector</td><td>Apoyo en organización logística y pedagógica.</td></tr>
+                  <tr><td>1 Coordinador(a) EPT</td><td>Planificación, coordinación y sistematización.</td></tr>
+                  <tr><td>2 Docentes asesores EPT</td><td>Asesoría pedagógica y evaluación de proyectos.</td></tr>
+                  <tr><td>6 Jurados calificadores</td><td>Evaluación objetiva e imparcial (3 por categoría).</td></tr>
+                  <tr><td>100 Estudiantes</td><td>Diseño, desarrollo y presentación de proyectos.</td></tr>
+                  <tr><td>Personal de mantenimiento</td><td>Acondicionamiento del espacio y apoyo logístico.</td></tr>
+                  <tr><td>Padres de familia</td><td>Participación como público y apoyo en recursos.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Recursos Materiales -->
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-header card-header-brand"><i class="bi bi-box-seam me-2"></i>Recursos Materiales</div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead><tr><th>Tipo</th><th>Detalle</th></tr></thead>
+                <tbody>
+                  <tr><td>Infraestructura</td><td>Patio principal, mesas, sillas, toldos.</td></tr>
+                  <tr><td>Difusión</td><td>01 banner gigantografía, afiches, redes sociales.</td></tr>
+                  <tr><td>Stands</td><td>04 stands para equipos UGEL con mobiliario de exhibición.</td></tr>
+                  <tr><td>Portafolios</td><td>20 portafolios físicos y/o digitales (estructura oficial MINEDU).</td></tr>
+                  <tr><td>Evaluación</td><td>Rúbricas Cat. A y B, actas, declaraciones juradas.</td></tr>
+                  <tr><td>Premiación</td><td>Medallas (oro y plata), diplomas y útiles de escritorio.</td></tr>
+                  <tr><td>Refrigerio</td><td>Para 6 jurados calificadores.</td></tr>
+                  <tr><td>Tecnología</td><td>Proyector, laptop, parlantes para apertura y clausura.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsabilidades acordeón -->
+    <div class="card mb-4">
+      <div class="card-header card-header-brand"><i class="bi bi-person-check me-2"></i>Responsabilidades por Actor</div>
+      <div class="card-body">
+        <div class="accordion" id="accordionResp">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r1">🏫 Equipo Directivo</button></h2>
+            <div id="r1" class="accordion-collapse collapse" data-bs-parent="#accordionResp">
+              <div class="accordion-body">
+                <ul class="small mb-0">
+                  <li>Aprobar y visar el Plan de Trabajo para su implementación oficial.</li>
+                  <li>Determinar y acondicionar el patio principal para la Expoferia.</li>
+                  <li>Promover la difusión del concurso entre estudiantes, docentes y familias.</li>
+                  <li>Designar al jurado calificador (mínimo 3 por categoría) con declaración jurada.</li>
+                  <li>Garantizar la inscripción oportuna en el SICE de los ganadores.</li>
+                  <li>Gestionar los recursos económicos necesarios.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r2">📋 Coordinador de EPT</button></h2>
+            <div id="r2" class="accordion-collapse collapse" data-bs-parent="#accordionResp">
+              <div class="accordion-body">
+                <ul class="small mb-0">
+                  <li>Elaborar y socializar el Plan de Trabajo.</li>
+                  <li>Coordinar la revisión previa de los 20 portafolios antes del evento.</li>
+                  <li>Organizar logística del evento: stands, señalización, materiales, refrigerio y premiación.</li>
+                  <li>Sistematizar resultados y elaborar el informe final de la etapa institucional.</li>
+                  <li>Gestionar inscripción en el SICE para la etapa UGEL Cusco.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r3">👩‍🏫 Docentes Asesores de EPT</button></h2>
+            <div id="r3" class="accordion-collapse collapse" data-bs-parent="#accordionResp">
+              <div class="accordion-body">
+                <ul class="small mb-0">
+                  <li>Planificar y ejecutar sesiones de EPT para los 6 proyectos por aula (Design Thinking + Lean Startup).</li>
+                  <li>Evaluar los 6 proyectos con rúbricas oficiales y seleccionar el ganador de su aula.</li>
+                  <li>Acompañar y asesorar a los equipos durante todo el proceso.</li>
+                  <li>Verificar que los portafolios cumplan los requisitos antes de la revisión previa.</li>
+                  <li>Asumir asesoría directa del equipo que representa a la IE en etapa UGEL.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r4">🎓 Estudiantes</button></h2>
+            <div id="r4" class="accordion-collapse collapse" data-bs-parent="#accordionResp">
+              <div class="accordion-body">
+                <ul class="small mb-0">
+                  <li>Participar activamente con roles definidos (líder, investigador, diseñador…).</li>
+                  <li>Elaborar el portafolio según la estructura oficial del MINEDU (categoría A o B).</li>
+                  <li>Aplicar las fases del Design Thinking generando evidencias fotográficas y documentales.</li>
+                  <li>Presentar el proyecto ante el jurado el <strong>20 de agosto de 2026</strong>.</li>
+                  <li>Demostrar habilidades blandas: liderazgo, cooperación, resiliencia, creatividad e innovación.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presupuesto -->
+    <div class="card">
+      <div class="card-header card-header-brand"><i class="bi bi-cash-coin me-2"></i>Presupuesto Referencial</div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-striped mb-0">
+            <thead><tr><th>Descripción</th><th class="text-center">Cant.</th><th>Unidad</th><th class="text-end">P. Unit. (S/)</th><th class="text-end">Total (S/)</th></tr></thead>
+            <tbody>
+              <tr><td>Banner gigantografía (difusión del evento)</td><td class="text-center">1</td><td>Unidad</td><td class="text-end">100.00</td><td class="text-end">100.00</td></tr>
+              <tr><td>Refrigerio para jurados (6 × S/ 15.00)</td><td class="text-center">6</td><td>Refrigerio</td><td class="text-end">15.00</td><td class="text-end">90.00</td></tr>
+              <tr><td>Medallas (4 oro + 4 plata)</td><td class="text-center">8</td><td>Medalla</td><td class="text-end">12.00</td><td class="text-end">96.00</td></tr>
+              <tr><td>Útiles de escritorio (4 equipos ganadores)</td><td class="text-center">4</td><td>Set</td><td class="text-end">30.00</td><td class="text-end">120.00</td></tr>
+              <tr><td>Diplomas (4 de lugar + 20 participación)</td><td class="text-center">24</td><td>Diploma</td><td class="text-end">3.00</td><td class="text-end">72.00</td></tr>
+              <tr><td>Viáticos etapa UGEL (24 personas × S/ 5.00)</td><td class="text-center">24</td><td>Persona</td><td class="text-end">5.00</td><td class="text-end">120.00</td></tr>
+              <tr><td>Stands con mobiliario (4 stands)</td><td class="text-center">4</td><td>Stand</td><td class="text-end">80.00</td><td class="text-end">320.00</td></tr>
+              <tr><td>Artículos de escritorio para el evento</td><td class="text-center">1</td><td>Global</td><td class="text-end">40.00</td><td class="text-end">40.00</td></tr>
+              <tr><td>Decoración y ambientación del patio</td><td class="text-center">1</td><td>Global</td><td class="text-end">50.00</td><td class="text-end">50.00</td></tr>
+            </tbody>
+            <tfoot>
+              <tr class="fw-bold" style="background:var(--brand-primary); color:#fff">
+                <td colspan="4" class="text-end">TOTAL</td>
+                <td class="text-end">S/ 1,008.00</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <div class="p-3 small text-muted"><i class="bi bi-info-circle me-1"></i>Presupuesto referencial sujeto a aprobación del equipo directivo. Recursos a gestionar vía APAFA, ingresos propios, aportes voluntarios o aliados estratégicos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ DESCARGAS ════════════════ -->
+<section id="descargas" class="py-5" style="background:var(--brand-light)">
+  <div class="container">
+    <h2 class="section-title"><i class="bi bi-download me-2"></i>Descargar Documentos Oficiales</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body py-4">
+            <div class="display-4 mb-3" style="color:#1a5276"><i class="bi bi-file-earmark-word-fill"></i></div>
+            <h5 class="fw-bold">Formato Categoría A</h5>
+            <p class="text-muted small">Portafolio para 1.° y 2.° de Secundaria. Soluciones del entorno familiar y barrial.</p>
+            <a href="Formato_-_Cat_A.docx" download class="btn btn-download-a rounded-pill px-4">
+              <i class="bi bi-download me-2"></i>Descargar .docx
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body py-4">
+            <div class="display-4 mb-3" style="color:#6c3483"><i class="bi bi-file-earmark-word-fill"></i></div>
+            <h5 class="fw-bold">Formato Categoría B</h5>
+            <p class="text-muted small">Portafolio para 3.°, 4.° y 5.° de Secundaria. Soluciones de la comunidad y más allá.</p>
+            <a href="Formato_-_Cat_B.docx" download class="btn btn-download-b rounded-pill px-4">
+              <i class="bi bi-download me-2"></i>Descargar .docx
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 text-center">
+          <div class="card-body py-4">
+            <div class="display-4 mb-3" style="color:#c0392b"><i class="bi bi-file-earmark-text-fill"></i></div>
+            <h5 class="fw-bold">Plan de Trabajo 2026</h5>
+            <p class="text-muted small">Documento completo del Plan de Trabajo del Concurso Institucional Crea y Emprende 2026.</p>
+            <a href="Plan_Trabajo_Crea_Emprende_2026.docx" download class="btn btn-download-plan rounded-pill px-4">
+              <i class="bi bi-download me-2"></i>Descargar .docx
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer class="py-4">
+  <div class="container">
+    <div class="row g-2 align-items-center">
+      <div class="col-md-7">
+        <p class="mb-0"><strong class="text-white">IE N.° 51006 "Túpac Amaru"</strong> · Santiago, Cusco</p>
+        <p class="mb-0 small">UGEL Cusco · Director: Prof. Efraín ACCOSTUPA ACCOSTUPA</p>
+        <p class="mb-0 small">Elaborado por: Prof. Edwin MAMANI LOPEZ &amp; Prof. Erick Javier ROMERO PAREJA — Docentes del Área de EPT · Año 2026</p>
+      </div>
+      <div class="col-md-5 text-md-end">
+        <p class="mb-0 small">Concurso Nacional Crea y Emprende 2026 – MINEDU</p>
+        <p class="mb-0 small">Etapa Institucional · Educación Secundaria</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Highlight active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
