@@ -317,24 +317,48 @@ a{ text-decoration:none; color:inherit; }
 }
 
 /* ---------- Recursos descargables ---------- */
+.cabecera-centrada{ text-align:center; max-width:42rem; margin:0 auto 2.5rem; }
+.cabecera-centrada .eyebrow{ justify-content:center; }
+.cabecera-centrada .texto-seccion{ max-width:100%; }
+
 .tarjeta-recurso{
-  background:#fff; border-radius:var(--radio); padding:1.2rem; display:flex; align-items:center; gap:1rem;
-  border:1px solid rgba(11,58,84,.08); transition:box-shadow var(--transicion), transform var(--transicion);
+  background:#fff; border-radius:var(--radio); padding:1.6rem 1.3rem; height:100%;
+  border:1px solid rgba(11,58,84,.08); text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:.55rem;
+  transition:transform var(--transicion), box-shadow var(--transicion);
 }
-.tarjeta-recurso:hover{ box-shadow:var(--sombra); transform:translateY(-3px); }
+.tarjeta-recurso:hover{ transform:translateY(-6px); box-shadow:var(--sombra); }
 .tarjeta-recurso-icono{
-  flex:0 0 auto; width:52px; height:52px; border-radius:14px; background:rgba(28,102,144,.1);
-  color:var(--azul-cusco); display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+  width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; margin-bottom:.3rem; flex:0 0 auto;
 }
-.tarjeta-recurso-info{ flex:1; min-width:0; }
-.tarjeta-recurso-info h3{ font-family:var(--f-texto); font-size:1rem; font-weight:600; margin-bottom:.2rem; color:var(--azul-profundo); }
-.tarjeta-recurso-info p{ font-size:.85rem; color:var(--carbon-suave); margin-bottom:.4rem; }
-.contador-descargas{ font-family:var(--f-dato); font-size:.76rem; color:var(--verde-anden); display:inline-flex; gap:.3rem; align-items:center; }
-.btn-descargar{
-  flex:0 0 auto; width:44px; height:44px; border-radius:50%; background:var(--verde-brote); color:#0B2A1D;
-  display:flex; align-items:center; justify-content:center; transition:transform var(--transicion), background var(--transicion);
+.icono-word{ background:rgba(28,102,144,.1); color:var(--azul-cusco); }
+.icono-pdf{ background:rgba(196,64,54,.1); color:#C44036; }
+.icono-ppt{ background:rgba(211,120,38,.12); color:#D37826; }
+.tarjeta-recurso h3{ font-family:var(--f-texto); font-size:.98rem; font-weight:600; color:var(--azul-profundo); margin:0; line-height:1.3; min-height:2.6em; }
+.badge-tipo-archivo{
+  font-family:var(--f-dato); font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.04em;
+  padding:.2rem .6rem; border-radius:100px;
 }
-.btn-descargar:hover{ background:var(--oro-inca); transform:scale(1.08); color:#0B2A1D; }
+.badge-word{ background:rgba(28,102,144,.1); color:var(--azul-cusco); }
+.badge-pdf{ background:rgba(196,64,54,.1); color:#C44036; }
+.badge-ppt{ background:rgba(211,120,38,.12); color:#D37826; }
+.tarjeta-recurso .contador-descargas{ font-size:.74rem; }
+.btn-ver-mas-recurso{
+  margin-top:.4rem; background:var(--verde-anden); color:#fff; border:none; border-radius:100px;
+  padding:.42rem 1.1rem; font-size:.82rem; font-weight:600; transition:background var(--transicion);
+}
+.btn-ver-mas-recurso:hover{ background:var(--verde-brote); color:#0B2A1D; }
+
+/* Modal de recurso */
+.modal-recurso-encabezado{ display:flex; align-items:center; gap:1rem; }
+.modal-recurso-encabezado .tarjeta-recurso-icono{ margin-bottom:0; }
+.modal-recurso-archivo{ font-family:var(--f-dato); font-size:.86rem; color:var(--carbon-suave); margin:0 0 .3rem; word-break:break-word; }
+.btn-brote-solido{
+  background:var(--verde-brote); color:#0B2A1D; border:none; border-radius:100px; padding:.55rem 1.3rem; font-weight:600;
+  transition:transform var(--transicion), box-shadow var(--transicion);
+}
+.btn-brote-solido:hover{ transform:translateY(-2px); box-shadow:0 10px 20px -10px rgba(76,174,127,.55); color:#0B2A1D; }
 
 /* ---------- Contacto ---------- */
 .tarjeta-contacto{
@@ -378,8 +402,13 @@ a{ text-decoration:none; color:inherit; }
   position:fixed; bottom:1.4rem; right:1.4rem; width:58px; height:58px; border-radius:50%;
   background:#25D366; color:#fff; font-size:1.6rem; display:flex; align-items:center; justify-content:center;
   box-shadow:0 10px 24px -8px rgba(0,0,0,.45); z-index:1500; animation:pulso-wa 2.6s ease-in-out infinite;
+  transition:opacity .3s ease, transform .3s ease;
 }
 .boton-whatsapp-flotante:hover{ color:#fff; transform:scale(1.06); }
+/* Se oculta al llegar al pie de página para no tapar el contador de visitas */
+.boton-whatsapp-flotante.oculto-en-pie{
+  opacity:0; transform:translateY(12px) scale(.9); pointer-events:none;
+}
 @keyframes pulso-wa{
   0%,100%{ box-shadow:0 10px 24px -8px rgba(0,0,0,.45), 0 0 0 0 rgba(37,211,102,.5); }
   50%{ box-shadow:0 10px 24px -8px rgba(0,0,0,.45), 0 0 0 10px rgba(37,211,102,0); }

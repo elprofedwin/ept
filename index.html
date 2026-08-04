@@ -834,80 +834,191 @@
 <!-- ============ RECURSOS DESCARGABLES ============ -->
 <section id="recursos" class="seccion seccion-alterna">
   <div class="container">
-    <p class="eyebrow eyebrow-oscuro"><i class="bi bi-folder2-open"></i> Repositorio</p>
-    <h2 class="titulo-seccion">Recursos descargables</h2>
-    <p class="texto-seccion mb-5">Formatos oficiales para el desarrollo del proyecto de emprendimiento. Cada descarga suma al contador del documento.</p>
+    <div class="cabecera-centrada">
+      <p class="eyebrow eyebrow-oscuro justify-content-center"><i class="bi bi-folder2-open"></i> Repositorio</p>
+      <h2 class="titulo-seccion">Recursos descargables</h2>
+      <p class="texto-seccion mx-auto">Documentos oficiales del concurso Crea y Emprende 2026. Pulsa "Ver más" en cada archivo para conocer su contenido antes de descargarlo.</p>
+    </div>
 
-    <div class="row g-3" id="listaRecursos">
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="ficha-inscripcion">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-file-earmark-text"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Ficha de inscripción del equipo</h3>
-            <p>Datos del equipo, grado, sección e integrantes.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="ficha-inscripcion">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="ficha-inscripcion" download><i class="bi bi-download"></i></a>
+    <div class="row g-4 justify-content-center" id="listaRecursos">
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Plan Trabajo Crea y Emprende 2026</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="plan-trabajo">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="plan-trabajo"
+            data-titulo="Plan Trabajo Crea y Emprende 2026"
+            data-archivo="Plan Trabajo Crea Emprende 2026.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="Todo el área EPT"
+            data-descripcion="Documento de planificación institucional del concurso: objetivos, cronograma general de las etapas (institucional, y siguientes), responsables y criterios de organización por grado y sección.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="mapa-empatia">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-diagram-3"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Plantilla — Mapa de empatía</h3>
-            <p>Los seis cuadrantes listos para completar en equipo.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="mapa-empatia">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="mapa-empatia" download><i class="bi bi-download"></i></a>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-pdf"><i class="bi bi-file-earmark-pdf"></i></div>
+          <h3>Orientaciones Crea y Emprende 2026</h3>
+          <span class="badge-tipo-archivo badge-pdf">.pdf</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="orientaciones">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="orientaciones"
+            data-titulo="Orientaciones Crea y Emprende 2026"
+            data-archivo="Orientaciones Crea y Emprende 2026.pdf"
+            data-tipo="Documento PDF" data-icono="bi-file-earmark-pdf" data-color="pdf"
+            data-categoria="Todo el área EPT"
+            data-descripcion="Guía oficial con las bases del concurso: fases del proyecto de emprendimiento, criterios de participación, requisitos de presentación y recomendaciones para el acompañamiento docente.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="pov-cph">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-crosshair"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Formato POV y ¿Cómo podríamos…?</h3>
-            <p>Guía para redactar el punto de vista y la pregunta reto.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="pov-cph">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="pov-cph" download><i class="bi bi-download"></i></a>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Rúbrica — Categoría A</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="rubrica-a">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="rubrica-a"
+            data-titulo="Rúbrica — Categoría A"
+            data-archivo="Rubrica - Categoria A.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="1.°, 2.° y 3.° de secundaria"
+            data-descripcion="Rúbrica de evaluación para la Categoría A (1.° a 3.° de secundaria), usada por el jurado en la etapa institucional: criterios de empatía, prototipado y presentación oral, con su escala de puntaje.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="ficha-prototipado">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-tools"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Ficha de prototipado y validación</h3>
-            <p>Registro de pruebas, retroalimentación y mejoras.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="ficha-prototipado">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="ficha-prototipado" download><i class="bi bi-download"></i></a>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Rúbrica — Categoría B</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="rubrica-b">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="rubrica-b"
+            data-titulo="Rúbrica — Categoría B"
+            data-archivo="Rubrica - Categoria B.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="4.° y 5.° de secundaria"
+            data-descripcion="Rúbrica de evaluación para la Categoría B (4.° y 5.° de secundaria): incorpora criterios de modelo de negocio, costeo y plan de sostenibilidad además de la presentación ante jurado.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="costeo">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-calculator"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Hoja de costeo y precio de venta</h3>
-            <p>Estructura de costos fijos, variables y margen.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="costeo">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="costeo" download><i class="bi bi-download"></i></a>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Formato — Categoría A</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="formato-a">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="formato-a"
+            data-titulo="Formato — Categoría A"
+            data-archivo="Formato - Cat A.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="1.°, 2.° y 3.° de secundaria"
+            data-descripcion="Formato editable para documentar el proyecto de emprendimiento de la Categoría A: mapa de empatía, POV, ¿Cómo podríamos…?, boceto del prototipo y ficha de validación.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
-      <div class="col-md-6">
-        <div class="tarjeta-recurso" data-recurso="rubrica">
-          <div class="tarjeta-recurso-icono"><i class="bi bi-clipboard-check"></i></div>
-          <div class="tarjeta-recurso-info">
-            <h3>Rúbrica de evaluación — Etapa institucional</h3>
-            <p>Criterios e indicadores usados por el jurado.</p>
-            <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="rubrica">0</span> descargas</span>
-          </div>
-          <a href="#" class="btn btn-descargar" data-recurso="rubrica" download><i class="bi bi-download"></i></a>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Formato — Categoría B</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="formato-b">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="formato-b"
+            data-titulo="Formato — Categoría B"
+            data-archivo="Formato - Cat B.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="4.° y 5.° de secundaria"
+            data-descripcion="Formato editable para documentar el proyecto de la Categoría B: modelo de negocio, estructura de costos, precio de venta, plan de sostenibilidad y guion del pitch final.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
         </div>
       </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-word"><i class="bi bi-file-earmark-word"></i></div>
+          <h3>Proyecto ejemplo</h3>
+          <span class="badge-tipo-archivo badge-word">.docx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="proyecto-ejemplo">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="proyecto-ejemplo"
+            data-titulo="Proyecto ejemplo"
+            data-archivo="Proyecto ejemplo.docx"
+            data-tipo="Documento de Word" data-icono="bi-file-earmark-word" data-color="word"
+            data-categoria="Todo el área EPT"
+            data-descripcion="Modelo de proyecto de emprendimiento completo y ya desarrollado, de uso referencial para que cada equipo entienda el nivel de detalle esperado en cada etapa antes de elaborar el suyo.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="tarjeta-recurso">
+          <div class="tarjeta-recurso-icono icono-ppt"><i class="bi bi-file-earmark-ppt"></i></div>
+          <h3>Precisiones de la Expoferia 2026</h3>
+          <span class="badge-tipo-archivo badge-ppt">.pptx</span>
+          <span class="contador-descargas"><i class="bi bi-download"></i> <span class="valor-contador" data-contador="precisiones-expoferia">0</span> descargas</span>
+          <button class="btn btn-ver-mas-recurso" data-bs-toggle="modal" data-bs-target="#modalRecurso"
+            data-recurso="precisiones-expoferia"
+            data-titulo="Precisiones de la Expoferia 2026"
+            data-archivo="Precisiones de la Expoferia 2026.pptx"
+            data-tipo="Presentación de PowerPoint" data-icono="bi-file-earmark-ppt" data-color="ppt"
+            data-categoria="Todo el área EPT"
+            data-descripcion="Diapositivas con las precisiones logísticas de la Expoferia del 27 de agosto: horarios de instalación, distribución de stands por grado y sección, tiempo de exposición y recomendaciones finales.">
+            Ver más <i class="bi bi-arrow-up-right"></i>
+          </button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<!-- Modal único de recurso descargable (se llena por JS con los data-* del botón) -->
+<div class="modal fade" id="modalRecurso" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalRecursoTitulo">Recurso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-recurso-encabezado">
+          <div class="tarjeta-recurso-icono" id="modalRecursoIconoContenedor"><i id="modalRecursoIcono" class="bi bi-file-earmark"></i></div>
+          <div>
+            <p class="modal-recurso-archivo" id="modalRecursoArchivo"></p>
+            <span class="badge-tipo-archivo" id="modalRecursoTipoBadge"></span>
+          </div>
+        </div>
+        <p id="modalRecursoDescripcion" class="mt-3"></p>
+        <div class="modal-etiquetas">
+          <span><i class="bi bi-people"></i> Dirigido a: <strong id="modalRecursoCategoria"></strong></span>
+          <span><i class="bi bi-download"></i> <strong id="modalRecursoContador">0</strong> descargas</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-brote-solido" id="modalRecursoBotonDescargar"><i class="bi bi-download me-1"></i> Descargar archivo</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ CONTACTO ============ -->
 <section id="contacto" class="seccion">

@@ -85,6 +85,23 @@ document.addEventListener('DOMContentLoaded', () => {
   const intervaloCuentaRegresiva = setInterval(actualizarCuentaRegresiva, 1000);
 
   /* ---------------------------------------------------------------------
+     2.2 OCULTAR EL BOTÓN FLOTANTE DE WHATSAPP AL LLEGAR AL PIE DE PÁGINA
+     Evita que el botón fijo se superponga al contador de visitas del
+     footer (ambos coinciden en la esquina inferior derecha).
+  --------------------------------------------------------------------- */
+  const botonWhatsappFlotante = document.querySelector('.boton-whatsapp-flotante');
+  const piePagina = document.querySelector('.pie-pagina');
+
+  if (botonWhatsappFlotante && piePagina) {
+    const observadorPie = new IntersectionObserver((entradas) => {
+      entradas.forEach(entrada => {
+        botonWhatsappFlotante.classList.toggle('oculto-en-pie', entrada.isIntersecting);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+    observadorPie.observe(piePagina);
+  }
+
+  /* ---------------------------------------------------------------------
      3. SCROLL REVEAL — tarjetas y bloques aparecen al entrar en pantalla
   --------------------------------------------------------------------- */
   const elementosRevelables = document.querySelectorAll(
@@ -210,109 +227,104 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- 5.2 Contadores de DESCARGAS por recurso ---
   const contenidoRecursos = {
-    'ficha-inscripcion': {
-      nombreArchivo: 'Ficha_Inscripcion_Equipo_CreaYEmprende2026.txt',
+    'plan-trabajo': {
+      nombreArchivo: 'Plan Trabajo Crea Emprende 2026.docx',
       texto:
-`FICHA DE INSCRIPCIÓN DEL EQUIPO
-Concurso Crea y Emprende 2026 — Etapa Institucional
+`PLAN DE TRABAJO — CREA Y EMPRENDE 2026
 Área de Educación para el Trabajo — IE N° 51006 "Túpac Amaru"
 
-1. Grado y sección: ______________________
-2. Nombre del proyecto: ______________________
-3. Integrantes del equipo:
-   1) __________________________
-   2) __________________________
-   3) __________________________
-   4) __________________________
-   5) __________________________
-4. Docente asesor: ______________________
-5. Breve descripción del producto o servicio:
-   ____________________________________________
-   ____________________________________________
-6. Firma del responsable de equipo: ______________________
+1. Objetivo general del concurso
+2. Cronograma de etapas (institucional y siguientes)
+3. Responsables por grado y sección
+4. Criterios generales de organización
 `
     },
-    'mapa-empatia': {
-      nombreArchivo: 'Plantilla_Mapa_de_Empatia_CreaYEmprende2026.txt',
+    'orientaciones': {
+      nombreArchivo: 'Orientaciones Crea y Emprende 2026.pdf',
       texto:
-`PLANTILLA — MAPA DE EMPATÍA
-Concurso Crea y Emprende 2026 — Etapa Institucional
+`ORIENTACIONES — CREA Y EMPRENDE 2026
+Concurso institucional del Área de Educación para el Trabajo
 
-Usuario observado: ______________________
-
-DICE:                          PIENSA Y CREE:
-_________________________      _________________________
-
-HACE:                          SIENTE:
-_________________________      _________________________
-
-DOLORES (miedos y obstáculos):
-_________________________________________________
-
-GANANCIAS (deseos y beneficios que busca):
-_________________________________________________
+1. Fases del proyecto de emprendimiento
+2. Criterios de participación
+3. Requisitos de presentación
+4. Recomendaciones para el docente asesor
 `
     },
-    'pov-cph': {
-      nombreArchivo: 'Formato_POV_ComoPodriamos_CreaYEmprende2026.txt',
+    'rubrica-a': {
+      nombreArchivo: 'Rubrica - Categoria A.docx',
       texto:
-`FORMATO — PUNTO DE VISTA (POV) Y ¿CÓMO PODRÍAMOS...?
-Concurso Crea y Emprende 2026 — Etapa Institucional
+`RÚBRICA DE EVALUACIÓN — CATEGORÍA A
+Dirigido a: 1.°, 2.° y 3.° de secundaria
 
-Declaración POV:
-"[Usuario] ______________ necesita ______________
-porque ______________ (insight)."
-
-Pregunta ¿Cómo podríamos...?:
-¿Cómo podríamos ____________________________________?
-`
-    },
-    'ficha-prototipado': {
-      nombreArchivo: 'Ficha_Prototipado_Validacion_CreaYEmprende2026.txt',
-      texto:
-`FICHA DE PROTOTIPADO Y VALIDACIÓN
-Concurso Crea y Emprende 2026 — Etapa Institucional
-
-Versión del prototipo: N.° ______
-Descripción del prototipo:
-_________________________________________________
-
-Usuarios que probaron el prototipo: ______________________
-
-Retroalimentación recibida:
-_________________________________________________
-
-Mejoras aplicadas para la siguiente versión:
-_________________________________________________
-`
-    },
-    'costeo': {
-      nombreArchivo: 'Hoja_Costeo_Precio_Venta_CreaYEmprende2026.txt',
-      texto:
-`HOJA DE COSTEO Y PRECIO DE VENTA
-Concurso Crea y Emprende 2026 — Etapa Institucional
-
-Costos fijos (S/):        ______________
-Costos variables (S/):    ______________
-Unidades a producir:      ______________
-Costo unitario:           ______________
-Margen de ganancia (%):   ______________
-Precio de venta sugerido: ______________
-`
-    },
-    'rubrica': {
-      nombreArchivo: 'Rubrica_Evaluacion_Etapa_Institucional_CreaYEmprende2026.txt',
-      texto:
-`RÚBRICA DE EVALUACIÓN — ETAPA INSTITUCIONAL
-Concurso Crea y Emprende 2026 — Área de Educación para el Trabajo
-
-Criterio 1: Identificación del problema y empatía con el usuario   (0-4 pts)
-Criterio 2: Calidad e innovación del prototipo                     (0-4 pts)
-Criterio 3: Validación con usuarios reales                         (0-4 pts)
-Criterio 4: Viabilidad económica (costeo y precio)                 (0-4 pts)
-Criterio 5: Presentación oral (pitch) ante el jurado                (0-4 pts)
+Criterio 1: Empatía y diagnóstico del problema        (0-4 pts)
+Criterio 2: Calidad del prototipo                       (0-4 pts)
+Criterio 3: Creatividad e innovación                     (0-4 pts)
+Criterio 4: Trabajo en equipo                            (0-4 pts)
+Criterio 5: Presentación oral ante el jurado             (0-4 pts)
 
 Puntaje total: _____ / 20
+`
+    },
+    'rubrica-b': {
+      nombreArchivo: 'Rubrica - Categoria B.docx',
+      texto:
+`RÚBRICA DE EVALUACIÓN — CATEGORÍA B
+Dirigido a: 4.° y 5.° de secundaria
+
+Criterio 1: Identificación del problema y validación     (0-4 pts)
+Criterio 2: Viabilidad económica (costeo y precio)        (0-4 pts)
+Criterio 3: Modelo de negocio                             (0-4 pts)
+Criterio 4: Plan de sostenibilidad                        (0-4 pts)
+Criterio 5: Pitch final ante el jurado                    (0-4 pts)
+
+Puntaje total: _____ / 20
+`
+    },
+    'formato-a': {
+      nombreArchivo: 'Formato - Cat A.docx',
+      texto:
+`FORMATO DE PROYECTO — CATEGORÍA A
+Dirigido a: 1.°, 2.° y 3.° de secundaria
+
+1. Mapa de empatía
+2. Declaración POV
+3. Pregunta ¿Cómo podríamos...?
+4. Boceto del prototipo
+5. Ficha de validación con usuarios
+`
+    },
+    'formato-b': {
+      nombreArchivo: 'Formato - Cat B.docx',
+      texto:
+`FORMATO DE PROYECTO — CATEGORÍA B
+Dirigido a: 4.° y 5.° de secundaria
+
+1. Modelo de negocio (Canvas)
+2. Estructura de costos y precio de venta
+3. Plan de sostenibilidad
+4. Guion del pitch final
+`
+    },
+    'proyecto-ejemplo': {
+      nombreArchivo: 'Proyecto ejemplo.docx',
+      texto:
+`PROYECTO EJEMPLO — CREA Y EMPRENDE 2026
+Modelo referencial de proyecto de emprendimiento desarrollado
+de principio a fin, para orientar el nivel de detalle esperado
+en cada etapa.
+`
+    },
+    'precisiones-expoferia': {
+      nombreArchivo: 'Precisiones de la Expoferia 2026.pptx',
+      texto:
+`PRECISIONES DE LA EXPOFERIA 2026
+Jueves 27 de agosto — 11:00 a.m.
+
+1. Horario de instalación de stands
+2. Distribución de stands por grado y sección
+3. Tiempo de exposición por equipo
+4. Recomendaciones finales para el día del evento
 `
     }
   };
@@ -350,25 +362,65 @@ Puntaje total: _____ / 20
   }
   pintarContadoresDescargaIniciales();
 
-  // Click en cada botón de descarga: genera el archivo + incrementa contador
-  document.querySelectorAll('.btn-descargar').forEach(boton => {
-    boton.addEventListener('click', async (evento) => {
-      evento.preventDefault();
+  // Sincroniza en pantalla todos los contadores que muestren el mismo recurso
+  // (la tarjeta y, si está abierto, el modal)
+  function pintarValorContador(idRecurso, valor) {
+    const valorFormateado = new Intl.NumberFormat('es-PE').format(valor);
+    document.querySelectorAll(`.valor-contador[data-contador="${idRecurso}"]`).forEach(span => {
+      span.textContent = valorFormateado;
+    });
+    const contadorModal = document.getElementById('modalRecursoContador');
+    if (contadorModal && modalRecurso.dataset.recursoActivo === idRecurso) {
+      contadorModal.textContent = valorFormateado;
+    }
+  }
+
+  // --- 5.3 Modal de recurso: se llena con los data-* del botón "Ver más" ---
+  const modalRecurso = document.getElementById('modalRecurso');
+  const botonDescargarModal = document.getElementById('modalRecursoBotonDescargar');
+
+  if (modalRecurso) {
+    modalRecurso.addEventListener('show.bs.modal', async (evento) => {
+      const boton = evento.relatedTarget;
+      if (!boton) return;
+
       const idRecurso = boton.dataset.recurso;
+      modalRecurso.dataset.recursoActivo = idRecurso;
+
+      document.getElementById('modalRecursoTitulo').textContent = boton.dataset.titulo || '';
+      document.getElementById('modalRecursoArchivo').textContent = boton.dataset.archivo || '';
+      document.getElementById('modalRecursoDescripcion').textContent = boton.dataset.descripcion || '';
+      document.getElementById('modalRecursoCategoria').textContent = boton.dataset.categoria || '';
+
+      const icono = document.getElementById('modalRecursoIcono');
+      icono.className = 'bi ' + (boton.dataset.icono || 'bi-file-earmark');
+      const contenedorIcono = document.getElementById('modalRecursoIconoContenedor');
+      contenedorIcono.className = 'tarjeta-recurso-icono icono-' + (boton.dataset.color || 'word');
+
+      const badge = document.getElementById('modalRecursoTipoBadge');
+      badge.textContent = boton.dataset.tipo || '';
+      badge.className = 'badge-tipo-archivo badge-' + (boton.dataset.color || 'word');
+
+      // Muestra el contador actual sin incrementarlo todavía (solo se incrementa al descargar)
+      const valorActual = await actualizarContador('descarga-' + idRecurso, { incrementar: false });
+      document.getElementById('modalRecursoContador').textContent = new Intl.NumberFormat('es-PE').format(valorActual || 0);
+    });
+  }
+
+  // Click en "Descargar archivo" dentro del modal: genera el archivo + incrementa contador
+  if (botonDescargarModal) {
+    botonDescargarModal.addEventListener('click', async () => {
+      const idRecurso = modalRecurso.dataset.recursoActivo;
       const recurso = contenidoRecursos[idRecurso];
       if (!recurso) return;
 
       descargarArchivoTexto(recurso.nombreArchivo, recurso.texto);
 
-      const claveContador = 'descarga-' + idRecurso;
-      const nuevoValor = await actualizarContador(claveContador, { incrementar: true });
-
-      const spanContador = document.querySelector(`.valor-contador[data-contador="${idRecurso}"]`);
-      if (spanContador) spanContador.textContent = new Intl.NumberFormat('es-PE').format(nuevoValor);
-
+      const nuevoValor = await actualizarContador('descarga-' + idRecurso, { incrementar: true });
+      pintarValorContador(idRecurso, nuevoValor);
       mostrarToastDescarga(`"${recurso.nombreArchivo}" descargado`);
     });
-  });
+  }
 
 });
 
